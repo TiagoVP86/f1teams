@@ -1,15 +1,10 @@
 package com.example.formula1.data.remote
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
-
-@JsonClass(generateAdapter = true)
 data class TeamsResponseDto(
     val season: Int?,
     val teams: List<TeamDto> = emptyList()
 )
 
-@JsonClass(generateAdapter = true)
 data class TeamDto(
     val teamId: String,
     val teamName: String,
@@ -20,7 +15,6 @@ data class TeamDto(
     val url: String?
 )
 
-@JsonClass(generateAdapter = true)
 data class TeamDriversResponseDto(
     val season: Int?,
     val teamId: String?,
@@ -28,7 +22,6 @@ data class TeamDriversResponseDto(
     val drivers: List<DriverWrapperDto> = emptyList()
 )
 
-@JsonClass(generateAdapter = true)
 data class TeamStandingDto(
     val teamName: String?,
     val points: Int?,
@@ -36,12 +29,10 @@ data class TeamStandingDto(
     val wins: Int?
 )
 
-@JsonClass(generateAdapter = true)
 data class DriverWrapperDto(
     val driver: DriverDto
 )
 
-@JsonClass(generateAdapter = true)
 data class DriverDto(
     val driverId: String,
     val name: String,

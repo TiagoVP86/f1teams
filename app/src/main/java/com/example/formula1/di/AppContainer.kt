@@ -1,6 +1,7 @@
 package com.example.formula1.di
 
 import android.content.Context
+import com.example.formula1.BuildConfig
 import com.example.formula1.data.local.AppDatabase
 import com.example.formula1.data.remote.F1ApiService
 import com.example.formula1.data.repository.DriverRepository
@@ -20,7 +21,11 @@ class AppContainer(context: Context) {
 
     private val okHttp: OkHttpClient = OkHttpClient.Builder()
         .addInterceptor(HttpLoggingInterceptor().apply {
-            level = HttpLoggingInterceptor.Level.BASIC
+            level = if (BuildConfig.DEBUG) {
+                HttpLoggingInterceptor.Level.BODY
+            } else {
+                HttpLoggingInterceptor.Level.NONE
+            }
         })
         .build()
 

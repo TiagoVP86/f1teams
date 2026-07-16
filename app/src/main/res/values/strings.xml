@@ -7,13 +7,11 @@
     <string name="error_no_data">Não foi possível carregar os times. Verifique a conexão.</string>
     <string name="error_detail">Não foi possível atualizar os dados do time.</string>
     <string name="retry">Tentar novamente</string>
-    <string name="empty_teams">Nenhum time disponível.</string>
     <string name="label_points">Pontos</string>
     <string name="label_position">Posição</string>
     <string name="label_wins">Vitórias</string>
     <string name="label_season">Temporada</string>
     <string name="drivers_title">Pilotos</string>
-    <string name="age_format">%d anos</string>
     <string name="driver_meta">%1$s • %2$d anos • P%3$d</string>
     <string name="driver_points">%d pts</string>
 </resources>

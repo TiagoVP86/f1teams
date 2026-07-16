@@ -7,6 +7,7 @@ import com.example.formula1.data.repository.TeamRepository
 import com.example.formula1.domain.model.Team
 import com.example.formula1.ui.common.TeamsEvent
 import com.example.formula1.ui.common.TeamsUiState
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
@@ -26,6 +27,8 @@ class TeamsViewModel(
     private val _events = MutableSharedFlow<TeamsEvent>()
     val events: SharedFlow<TeamsEvent> = _events.asSharedFlow()
 
+    private var refreshJob: Job? = null
+
     init {
         observeTeams()
         refresh()
@@ -40,7 +43,8 @@ class TeamsViewModel(
     }
 
     fun refresh() {
-        viewModelScope.launch {
+        if (refreshJob?.isActive == true) return
+        refreshJob = viewModelScope.launch {
             _state.update { it.copy(loading = true) }
             val result = repository.refreshTeams()
             _state.update { it.copy(loading = false) }

@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.formula1.R
 import com.example.formula1.databinding.ItemDriverBinding
 import com.example.formula1.domain.model.Driver
 
@@ -21,11 +22,13 @@ class DriversAdapter : ListAdapter<Driver, DriversAdapter.VH>(DIFF) {
 
     class VH(private val binding: ItemDriverBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(d: Driver) {
-            binding.number.text = d.number?.toString() ?: "-"
+            val context = binding.root.context
+            binding.number.text = d.number?.toString() ?: "—"
             binding.driverName.text = d.fullName
-            val age = d.age?.let { "$it anos" } ?: "—"
-            binding.driverMeta.text = "${d.nationality} • $age • P${d.position}"
-            binding.points.text = "${d.points} pts"
+            binding.driverMeta.text = d.age?.let { age ->
+                context.getString(R.string.driver_meta, d.nationality, age, d.position)
+            } ?: "${d.nationality} • — • P${d.position}"
+            binding.points.text = context.getString(R.string.driver_points, d.points)
         }
     }
 

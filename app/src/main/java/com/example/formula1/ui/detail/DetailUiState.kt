@@ -6,6 +6,9 @@ import com.example.formula1.domain.model.TeamStanding
 data class DetailUiState(
     val standing: TeamStanding? = null,
     val drivers: List<Driver> = emptyList(),
-    val loading: Boolean = true,
-    val error: Boolean = false
+    val loading: Boolean = true
 )
+
+sealed interface DetailEvent {
+    data object RefreshError : DetailEvent
+}

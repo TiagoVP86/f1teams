@@ -52,6 +52,17 @@ class TeamDetailFragment : Fragment() {
                 viewModel.state.collect { render(it) }
             }
         }
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.events.collect { event ->
+                    when (event) {
+                        DetailEvent.RefreshError ->
+                            Snackbar.make(binding.root, com.example.formula1.R.string.error_detail, Snackbar.LENGTH_LONG).show()
+                    }
+                }
+            }
+        }
     }
 
     private fun render(state: DetailUiState) {
@@ -66,10 +77,6 @@ class TeamDetailFragment : Fragment() {
             binding.points.text = s.points.toString()
             binding.position.text = "P${s.position}"
             binding.wins.text = s.wins.toString()
-        }
-
-        if (state.error && state.drivers.isEmpty()) {
-            Snackbar.make(binding.root, com.example.formula1.R.string.error_detail, Snackbar.LENGTH_LONG).show()
         }
     }
 
