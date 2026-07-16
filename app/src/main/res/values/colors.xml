@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="f1_red">#E10600</color>
+    <color name="f1_red_dark">#B00500</color>
+    <color name="f1_carbon">#15151E</color>
+    <color name="f1_surface">#1F1F27</color>
+    <color name="f1_surface_light">#FFFFFF</color>
+    <color name="f1_on_surface">#FFFFFF</color>
+    <color name="f1_on_surface_dark">#15151E</color>
+    <color name="f1_muted">#9A9AA5</color>
+    <color name="f1_divider">#38383F</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#15151E</color>
 </resources>
