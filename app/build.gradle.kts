@@ -32,6 +32,7 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
+        isCoreLibraryDesugaringEnabled = true
     }
     buildFeatures {
         viewBinding = true
@@ -63,6 +64,8 @@ dependencies {
     implementation(libs.androidx.fragment.ktx)
     implementation(libs.androidx.navigation.fragment)
     implementation(libs.androidx.navigation.ui)
+
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.2")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.espresso.core)
