@@ -8,6 +8,9 @@ import com.example.formula1.data.remote.toEntity
 import com.example.formula1.data.remote.toStanding
 import com.example.formula1.domain.model.Driver
 import com.example.formula1.domain.model.TeamStanding
+import kotlinx.coroutines.async
+import kotlinx.coroutines.awaitAll
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
@@ -43,4 +46,13 @@ class DriverRepository(
         } catch (e: Exception) {
             RefreshResult.Error(e)
         }
+
+    /**
+     * Baixa e persiste os pilotos de todos os times informados, em paralelo.
+     * Best-effort: falhas individuais (ex.: offline) são ignoradas, pois
+     * [refreshTeamDrivers] já as encapsula em [RefreshResult.Error].
+     */
+    suspend fun prefetchDrivers(teamIds: List<String>) = coroutineScope {
+        teamIds.map { id -> async { refreshTeamDrivers(id) } }.awaitAll()
+    }
 }

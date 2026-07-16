@@ -26,7 +26,10 @@ class TeamsFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val viewModel: TeamsViewModel by viewModels {
-        viewModelFactory { TeamsViewModel(requireContext().appContainer.teamRepository) }
+        viewModelFactory {
+            val container = requireContext().appContainer
+            TeamsViewModel(container.teamRepository, container.driverRepository)
+        }
     }
 
     private lateinit var adapter: TeamsAdapter

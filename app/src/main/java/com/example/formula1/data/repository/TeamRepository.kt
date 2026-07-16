@@ -27,4 +27,6 @@ class TeamRepository(
     suspend fun toggleFavorite(teamId: String, current: Boolean) {
         teamDao.setFavorite(teamId, !current)
     }
+
+    suspend fun teamIds(): List<String> = teamDao.getAllTeamIds()
 }

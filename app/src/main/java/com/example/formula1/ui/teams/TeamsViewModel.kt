@@ -2,6 +2,7 @@ package com.example.formula1.ui.teams
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.formula1.data.repository.DriverRepository
 import com.example.formula1.data.repository.RefreshResult
 import com.example.formula1.data.repository.TeamRepository
 import com.example.formula1.domain.model.Team
@@ -18,7 +19,8 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 class TeamsViewModel(
-    private val repository: TeamRepository
+    private val repository: TeamRepository,
+    private val driverRepository: DriverRepository
 ) : ViewModel() {
 
     private val _state = MutableStateFlow(TeamsUiState())
@@ -54,7 +56,19 @@ class TeamsViewModel(
                 } else {
                     _events.emit(TeamsEvent.RefreshError)
                 }
+            } else {
+                prefetchAllDrivers()
             }
+        }
+    }
+
+    /**
+     * Após atualizar a lista de times, baixa os pilotos de todas as escuderias
+     * em background para que qualquer time abra offline sem ter sido visitado.
+     */
+    private fun prefetchAllDrivers() {
+        viewModelScope.launch {
+            driverRepository.prefetchDrivers(repository.teamIds())
         }
     }
 

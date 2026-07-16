@@ -69,4 +69,7 @@ interface TeamDao {
 
     @Query("UPDATE teams SET isFavorite = :favorite WHERE teamId = :teamId")
     suspend fun setFavorite(teamId: String, favorite: Boolean)
+
+    @Query("SELECT teamId FROM teams")
+    suspend fun getAllTeamIds(): List<String>
 }
