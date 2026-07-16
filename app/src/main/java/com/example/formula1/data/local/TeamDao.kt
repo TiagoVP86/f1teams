@@ -41,10 +41,9 @@ interface TeamDao {
         url: String?
     )
 
-    /** Upsert que preserva isFavorite e as colunas de standing. */
     @Transaction
     suspend fun upsertTeams(teams: List<TeamEntity>) {
-        insertIgnore(teams) // novos entram completos (favorite=false)
+        insertIgnore(teams)
         teams.forEach {
             updateData(
                 teamId = it.teamId,

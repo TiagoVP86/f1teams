@@ -62,10 +62,6 @@ class TeamsViewModel(
         }
     }
 
-    /**
-     * Após atualizar a lista de times, baixa os pilotos de todas as escuderias
-     * em background para que qualquer time abra offline sem ter sido visitado.
-     */
     private fun prefetchAllDrivers() {
         viewModelScope.launch {
             driverRepository.prefetchDrivers(repository.teamIds())

@@ -12,7 +12,6 @@ data class TeamEntity(
     val constructorsChampionships: Int?,
     val driversChampionships: Int?,
     val url: String?,
-    // standing (preenchido ao abrir o detalhe)
     val points: Int? = null,
     val position: Int? = null,
     val wins: Int? = null,

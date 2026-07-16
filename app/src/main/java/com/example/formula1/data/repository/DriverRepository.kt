@@ -47,11 +47,6 @@ class DriverRepository(
             RefreshResult.Error(e)
         }
 
-    /**
-     * Baixa e persiste os pilotos de todos os times informados, em paralelo.
-     * Best-effort: falhas individuais (ex.: offline) são ignoradas, pois
-     * [refreshTeamDrivers] já as encapsula em [RefreshResult.Error].
-     */
     suspend fun prefetchDrivers(teamIds: List<String>) = coroutineScope {
         teamIds.map { id -> async { refreshTeamDrivers(id) } }.awaitAll()
     }
