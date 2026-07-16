@@ -4,6 +4,7 @@
     <string name="favorite_added">Adicionado aos favoritos</string>
     <string name="favorite_removed">Removido dos favoritos</string>
     <string name="cd_favorite">Favoritar time</string>
+    <string name="cd_open_details">Ver detalhes</string>
     <string name="error_no_data">Não foi possível carregar os times. Verifique a conexão.</string>
     <string name="error_detail">Não foi possível atualizar os dados do time.</string>
     <string name="retry">Tentar novamente</string>

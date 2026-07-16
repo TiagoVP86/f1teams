@@ -9,11 +9,13 @@
     android:paddingHorizontal="16dp"
     android:paddingVertical="14dp">
 
-    <View
-        android:id="@+id/accent"
-        android:layout_width="4dp"
-        android:layout_height="0dp"
-        android:background="@color/f1_red"
+    <ImageButton
+        android:id="@+id/favorite"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/cd_favorite"
+        android:src="@drawable/ic_favorite_border"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -24,10 +26,10 @@
         android:layout_height="wrap_content"
         android:textStyle="bold"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@id/accent"
         android:layout_marginStart="12dp"
+        app:layout_constraintStart_toEndOf="@id/favorite"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/favorite"
+        app:layout_constraintEnd_toStartOf="@id/chevron"
         tools:text="Scuderia Ferrari" />
 
     <TextView
@@ -38,16 +40,15 @@
         android:textSize="13sp"
         app:layout_constraintStart_toStartOf="@id/teamName"
         app:layout_constraintTop_toBottomOf="@id/teamName"
-        app:layout_constraintEnd_toStartOf="@id/favorite"
+        app:layout_constraintEnd_toStartOf="@id/chevron"
         tools:text="Italy" />
 
-    <ImageButton
-        android:id="@+id/favorite"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/cd_favorite"
-        android:src="@drawable/ic_star_border"
+    <ImageView
+        android:id="@+id/chevron"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:contentDescription="@string/cd_open_details"
+        android:src="@drawable/ic_chevron_right"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

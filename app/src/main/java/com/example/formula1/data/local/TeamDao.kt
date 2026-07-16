@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface TeamDao {
 
-    @Query("SELECT * FROM teams ORDER BY teamName COLLATE NOCASE ASC")
+    @Query("SELECT * FROM teams ORDER BY isFavorite DESC, teamName COLLATE NOCASE ASC")
     fun observeTeams(): Flow<List<TeamEntity>>
 
     @Query("SELECT * FROM teams WHERE teamId = :teamId")

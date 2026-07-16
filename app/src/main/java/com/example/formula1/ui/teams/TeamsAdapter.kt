@@ -28,7 +28,7 @@ class TeamsAdapter(
             binding.teamName.text = team.teamName
             binding.teamNationality.text = team.teamNationality
             binding.favorite.setImageResource(
-                if (team.isFavorite) R.drawable.ic_star else R.drawable.ic_star_border
+                if (team.isFavorite) R.drawable.ic_favorite else R.drawable.ic_favorite_border
             )
             binding.root.setOnClickListener { onClick(team) }
             binding.favorite.setOnClickListener { onFavorite(team) }
