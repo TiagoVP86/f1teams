@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/f1_red"
-        app:navigationIconTint="@color/white"
+        android:theme="@style/ThemeOverlay.Formula1.Toolbar"
         app:titleTextColor="@color/white" />
 
     <androidx.fragment.app.FragmentContainerView

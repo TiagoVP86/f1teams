@@ -9,6 +9,12 @@
         <item name="android:windowLightStatusBar">false</item>
     </style>
 
+    <!-- Deixa título e seta de voltar brancos sobre a toolbar vermelha. -->
+    <style name="ThemeOverlay.Formula1.Toolbar" parent="ThemeOverlay.Material3">
+        <item name="colorControlNormal">@color/white</item>
+        <item name="colorOnSurface">@color/white</item>
+    </style>
+
     <style name="StatColumn">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
