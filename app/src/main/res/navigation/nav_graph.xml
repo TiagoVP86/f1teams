@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/teamsFragment">
+
+    <fragment
+        android:id="@+id/teamsFragment"
+        android:name="com.example.formula1.ui.teams.TeamsFragment"
+        android:label="@string/teams_title">
+        <action
+            android:id="@+id/action_teams_to_detail"
+            app:destination="@id/teamDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/teamDetailFragment"
+        android:name="com.example.formula1.ui.detail.TeamDetailFragment"
+        android:label="{teamName}">
+        <argument
+            android:name="teamId"
+            app:argType="string" />
+        <argument
+            android:name="teamName"
+            app:argType="string"
+            android:defaultValue=" " />
+    </fragment>
+</navigation>
