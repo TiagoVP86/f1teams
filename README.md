@@ -4,7 +4,7 @@ App Android que lista as escuderias atuais da Fórmula 1 e, ao selecionar uma,
 mostra os dados do time e seus pilotos. Funciona offline: os dados ficam salvos
 localmente em SQLite (Room) e a internet só serve pra atualizar o banco.
 
-Feito como desafio técnico usando a API pública https://f1api.dev.
+Feito usando a API pública https://f1api.dev.
 
 ## O que dá pra fazer
 
